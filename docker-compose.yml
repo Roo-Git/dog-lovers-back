@@ -10,7 +10,7 @@ services:
             MYSQL_DATABASE: 'secondChance'
             MYSQL_USER: 'user'
             MYSQL_PASSWORD: 'password'
-            MYSQL_ROOT_PASSWORD: 'password'
+            MYSQL_ROOT_PASSWORD: 'password' 
         expose:
         - '3306'
   phpmyadmin:
