@@ -1,6 +1,6 @@
 const router = require('express').Router({mergeParams:true});
 const userController = require("../controllers/user.controller");
-const jwt = requier('jsonwebtoken');
+const jwt = require('jsonwebtoken');
 
 
 // USER ENDPOINTS
@@ -25,12 +25,14 @@ router.post('/login', async (req,res) => {
     try {
       const {email, password} = req.body;
       const jwt = await userController.login(email, password);
-      res.json({jwt})
+      res.json({
+        token:jwt,
+        email: email,
+      })
     }catch(error){
-        res.status(500).json({
-          error: 'error',
-          message: 'The user could not be loged'
-        })
+        res.status(401).json({
+          message: error.message
+        });
   };
 })
 

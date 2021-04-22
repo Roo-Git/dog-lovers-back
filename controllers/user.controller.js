@@ -18,7 +18,7 @@ class UserController {
   // User Login
 
   async login(email, password) {
-      const user = await User.findone({where:{email}})
+      const user = await User.findOne({where:{email}})
       if (!user) {
         throw new Error('Email does not exit, please try again.')
       }
