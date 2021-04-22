@@ -32,9 +32,6 @@ module.exports = {
       dni: {
         type: Sequelize.STRING
       },
-      token: {
-        type: Sequelize.STRING
-      },
       description: {
         type: Sequelize.STRING
       },

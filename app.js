@@ -9,8 +9,12 @@ app.get('/', function (req, res) {
   res.send('Hello world!')
 })
 
+// Middleware
+app.use(express.json());
 app.use(router)
 
+
+// Start server
 db.then(() => {
   app.listen(port, () => {
       console.log(`Server app listening at http://localhost:${port}`);   

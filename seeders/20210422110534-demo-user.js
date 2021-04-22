@@ -12,7 +12,6 @@ module.exports = {
         phone: "+34 58741258963",
         address: "c/ new street",
         dni: "53058811R",
-        token: "ALXDGLG",
         description: "I'am the admin",
         createdAt: new Date,
         updatedAt: new Date
