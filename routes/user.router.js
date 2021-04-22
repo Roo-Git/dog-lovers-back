@@ -26,8 +26,8 @@ router.post('/login', async (req,res) => {
       const {email, password} = req.body;
       const jwt = await userController.login(email, password);
       res.json({
-        token:jwt,
         email: email,
+        token:jwt
       })
     }catch(error){
         res.status(401).json({
