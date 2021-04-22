@@ -8,15 +8,13 @@ const secret = process.env.JWT_SECRET || 'secretword';
 class UserController {
 
   // User Register
-
-  async createUser(user) {
+  async signUp(user) {
       user.password = await bcrypt.hash(user.password, 5)
       return User.create(user)
   };
 
 
   // User Login
-
   async login(email, password) {
       const user = await User.findOne({where:{email}})
       if (!user) {
@@ -31,6 +29,15 @@ class UserController {
       }
       return jwt.sign(payload, secret);
   };
+
+
+  // Index All Users
+  async indexAll(){
+      return User.findAll()
+  }
+  
+  
+  // 
 
 };
 

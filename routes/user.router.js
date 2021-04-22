@@ -10,7 +10,7 @@ const jwt = require('jsonwebtoken');
 
 router.post('/', async (req,res) => {
     try{
-      res.json(await userController.createUser(req.body));
+      res.json(await userController.signUp(req.body));
     }catch(error){
       res.status(500).json({
         error: 'error',
@@ -31,10 +31,24 @@ router.post('/login', async (req,res) => {
       })
     }catch(error){
         res.status(401).json({
-          message: error.message
+        message: error.message
         });
-  };
+    };
 })
+
+ // Index All Users
+
+ router.get ('/', async (req,res) => {
+  try{
+    res.json(await userController.indexAll());
+  }catch(error){
+    console.log(error);
+    res.status(500).json({
+      error: 'error',
+      message: 'error'
+    });
+  };
+});
 
 
 module.exports = router;
