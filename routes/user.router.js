@@ -7,7 +7,6 @@ const jwt = require('jsonwebtoken');
 
 
 // User Register
-
 router.post('/', async (req,res) => {
     try{
       res.json(await userController.signUp(req.body));
@@ -19,8 +18,8 @@ router.post('/', async (req,res) => {
   };
 });
 
-// User Login
 
+// User Login
 router.post('/login', async (req,res) => {
     try {
       const {email, password} = req.body;
@@ -36,19 +35,41 @@ router.post('/login', async (req,res) => {
     };
 })
 
- // Index All Users
 
- router.get ('/', async (req,res) => {
-  try{
-    res.json(await userController.indexAll());
-  }catch(error){
-    console.log(error);
-    res.status(500).json({
-      error: 'error',
-      message: 'error'
-    });
-  };
+// Index All Users
+router.get ('/', async (req,res) => {
+    try{
+      res.json(await userController.indexAll());
+    }catch(error){
+      res.status(500).json({
+        error: 'error',
+        message: 'error'
+      });
+    };
 });
 
+
+// Get User Profile by Id
+router.get ('/:id', async (req, res) => {
+    try {
+      const id = req.params.id;
+      const user = await userController.findUser(id);
+      const firstName = user.firstName;
+      const lastName = user.lastName;
+      const email = user.email;
+      const phone = user.phone;
+      const address = user.address;
+      const description = user.description;
+
+
+
+      res.json({firstName, lastName, email, phone, address, description,})
+
+    }catch (err) {
+      return res.status(500).json({
+        message: err.message
+      })
+    }
+})
 
 module.exports = router;

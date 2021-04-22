@@ -35,6 +35,12 @@ class UserController {
   async indexAll(){
       return User.findAll()
   }
+
+  // Get user Profile by Id
+
+  async findUser(id){
+      return User.findOne({where:{id}})
+  }
   
   
   // 
