@@ -36,6 +36,23 @@ router.post('/login', async (req,res) => {
 })
 
 
+// Logout
+
+router.get('/logout/:id', async (req, res) => {
+    try{
+      const id = req.params.id;
+      const user = await userController.logout(id);
+      const status = `See you soon, ${user.firstName}`;
+
+      res.json({status, id, date:new Date});
+    }catch (error){
+        res.status(401).json({
+        message: error.message
+        });
+    };
+});
+
+
 // Index All Users
 router.get ('/', async (req,res) => {
     try{

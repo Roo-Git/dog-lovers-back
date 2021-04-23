@@ -30,7 +30,10 @@ class UserController {
       return jwt.sign(payload, secret);
   };
 
-
+  // Logout
+  async logout(id) {
+    return User.findByPk(id)
+  }
   // Index All Users
   async indexAll(){
       return User.findAll()
