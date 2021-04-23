@@ -52,6 +52,7 @@ router.get ('/', async (req,res) => {
 // Get User Profile by Id
 router.get ('/:id', async (req, res) => {
     try {
+
       const id = req.params.id;
       const user = await userController.findUser(id);
       const firstName = user.firstName;
@@ -60,9 +61,7 @@ router.get ('/:id', async (req, res) => {
       const phone = user.phone;
       const address = user.address;
       const description = user.description;
-
-
-
+    
       res.json({firstName, lastName, email, phone, address, description,})
 
     }catch (err) {
@@ -70,6 +69,19 @@ router.get ('/:id', async (req, res) => {
         message: err.message
       })
     }
+})
+
+// User Update
+
+router.put('/:id', async (req, res) => {
+  try{
+    const body = req.body;
+    res.json(await userController.updateUser(body, req.params.id));
+  }catch(err){
+    return res.status(500).json({
+      message: err.message
+    })
+  }
 })
 
 module.exports = router;

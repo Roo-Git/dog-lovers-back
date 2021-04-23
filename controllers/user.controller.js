@@ -37,13 +37,15 @@ class UserController {
   }
 
   // Get user Profile by Id
-
   async findUser(id){
       return User.findOne({where:{id}})
   }
   
   
-  // 
+  // Update User
+  async updateUser(user, id){
+    return User.update(user,{where:{id}})
+  }
 
 };
 
