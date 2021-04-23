@@ -1,6 +1,7 @@
 const router = require('express').Router({mergeParams:true});
 const userController = require("../controllers/user.controller");
 const jwt = require('jsonwebtoken');
+const auth = require('../middlewares/auth');
 
 
 // USER ENDPOINTS
@@ -24,10 +25,9 @@ router.post('/login', async (req,res) => {
     try {
       const {email, password} = req.body;
       const jwt = await userController.login(email, password);
-      res.json({
-        email: email,
-        token:jwt
-      })
+      const user = jwt.user;
+      const token = jwt.token;
+      res.json({user, token});
     }catch(error){
         res.status(401).json({
         message: error.message
@@ -91,7 +91,7 @@ router.get ('/:id', async (req, res) => {
 
 
 // Update User Profile (No password)
-router.put('/:id', async (req, res) => {
+router.put('/:id', auth, async (req, res) => {
     try{
       const body = req.body;
       res.json(await userController.updateUserProfile(body, req.params.id));
@@ -101,6 +101,10 @@ router.put('/:id', async (req, res) => {
       });
     };
 });
+
+// Para no modificar los usuarios otra persona, solo el user
+// pasamos el middleware por la ruta, la auth
+// importamos el archivo auth
 
 
 // Delete User

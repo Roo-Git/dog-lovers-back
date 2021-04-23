@@ -10,7 +10,7 @@ const auth =  async (req, res, next) => {
             throw new Error('Cannot be verified')
         }
         const userId = req.params.id
-        if (userId != payload.clientId){
+        if (userId != payload.userId){
             throw new Error(`The id ${userId} doesn't exist`)
         }
         next()

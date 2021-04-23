@@ -27,7 +27,8 @@ class UserController {
         userId: user.id,
         tokenCreationDate: new Date,
       }
-      return jwt.sign(payload, secret);
+      const token = jwt.sign(payload, secret);
+      return {user, token}
   };
 
   // Logout
@@ -46,10 +47,15 @@ class UserController {
   
   
   // Update User Profile by Id (No password)
-  async updateUserProfile(user, id){
-    return User.update(user,{where:{id}})
+  //async updateUserProfile(user, id){
+    //return User.update(user,{where:{id}})
   
-  }
+  //}
+
+  async updateUserProfile(update, id) {
+    const user = await User.findOne({where: {id}})
+    return await user.update(update);
+}
 
   // Delete User
   async deleteUser(id) {
