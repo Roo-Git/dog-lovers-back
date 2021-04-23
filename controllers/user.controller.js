@@ -7,14 +7,14 @@ const secret = process.env.JWT_SECRET || 'secretword';
 
 class UserController {
 
-  // User Register
+  // Register
   async signUp(user) {
       user.password = await bcrypt.hash(user.password, 5)
       return User.create(user)
   };
 
 
-  // User Login
+  // Login
   async login(email, password) {
       const user = await User.findOne({where:{email}})
       if (!user) {
@@ -46,6 +46,11 @@ class UserController {
   async updateUser(user, id){
     return User.update(user,{where:{id}})
   }
+
+  // Delete User
+  async deleteUser(id) {
+    return User.destroy({where:{id}})
+  };
 
 };
 

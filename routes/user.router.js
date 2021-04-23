@@ -6,7 +6,7 @@ const jwt = require('jsonwebtoken');
 // USER ENDPOINTS
 
 
-// User Register
+// Register
 router.post('/', async (req,res) => {
     try{
       res.json(await userController.signUp(req.body));
@@ -19,7 +19,7 @@ router.post('/', async (req,res) => {
 });
 
 
-// User Login
+// Login
 router.post('/login', async (req,res) => {
     try {
       const {email, password} = req.body;
@@ -67,21 +67,34 @@ router.get ('/:id', async (req, res) => {
     }catch (err) {
       return res.status(500).json({
         message: err.message
-      })
-    }
-})
+      });
+    };
+});
 
-// User Update
 
+// Update User
 router.put('/:id', async (req, res) => {
-  try{
-    const body = req.body;
-    res.json(await userController.updateUser(body, req.params.id));
-  }catch(err){
-    return res.status(500).json({
-      message: err.message
-    })
-  }
-})
+    try{
+      const body = req.body;
+      res.json(await userController.updateUser(body, req.params.id));
+    }catch(err){
+      return res.status(500).json({
+        message: err.message
+      });
+    };
+});
+
+
+// Delete User
+router.delete('/:id', async (req, res) => {
+    try{
+      res.json(await userController.deleteUser(req.params.id));
+    }catch(err){
+      res.status(500).json({
+        message: err.message
+      });
+    };
+});
+
 
 module.exports = router;
