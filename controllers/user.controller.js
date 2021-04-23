@@ -42,9 +42,10 @@ class UserController {
   }
   
   
-  // Update User
-  async updateUser(user, id){
+  // Update User Profile by Id (No password)
+  async updateUserProfile(user, id){
     return User.update(user,{where:{id}})
+  
   }
 
   // Delete User

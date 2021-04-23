@@ -55,14 +55,15 @@ router.get ('/:id', async (req, res) => {
 
       const id = req.params.id;
       const user = await userController.findUser(id);
+      const username = user.username;
+      const email = user.email;
       const firstName = user.firstName;
       const lastName = user.lastName;
-      const email = user.email;
       const phone = user.phone;
       const address = user.address;
       const description = user.description;
     
-      res.json({firstName, lastName, email, phone, address, description,})
+      res.json({username, email, firstName, lastName, phone, address, description})
 
     }catch (err) {
       return res.status(500).json({
@@ -72,11 +73,11 @@ router.get ('/:id', async (req, res) => {
 });
 
 
-// Update User
+// Update User Profile (No password)
 router.put('/:id', async (req, res) => {
     try{
       const body = req.body;
-      res.json(await userController.updateUser(body, req.params.id));
+      res.json(await userController.updateUserProfile(body, req.params.id));
     }catch(err){
       return res.status(500).json({
         message: err.message
