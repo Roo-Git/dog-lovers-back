@@ -14,9 +14,42 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   User.init({
-    username: DataTypes.STRING,
-    email: DataTypes.STRING,
-    password: DataTypes.STRING,
+      username: {
+      type: DataTypes.STRING,
+        validate: {
+          len: [5, 10],
+        },
+      },
+
+      email: {
+      type: DataTypes.STRING,
+        validate: {
+          len: [10, 20],
+        },
+      },
+
+      // Comentario de Robert de la Fuente 26/04/2021
+
+      // No he conseguido poner la contraseña nula.
+      
+      // Anteriormente Lo he intentado de las siguientes formas:
+      // con allowNull: false.
+      // con require: true.
+      // y en la validacion, poniendo notNull: true, o isNull: true.
+
+      // He consultado la siguiente documentación:
+      // https://sequelize.org/master/manual/validations-and-constraints.html
+
+      // He intentado darle un Len, pero no hay manera.
+      
+      
+      password: {       
+        type: DataTypes.STRING,
+        validate: {
+          len: [7, 1000000],
+        },
+      },
+
     firstName: DataTypes.STRING,
     lastName: DataTypes.STRING,
     phone: DataTypes.STRING,
