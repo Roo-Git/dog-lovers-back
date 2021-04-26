@@ -10,14 +10,16 @@ module.exports = {
       },
       username: {
         type: Sequelize.STRING,
-        unique: true
+        allowNull: false,
+
       },
       email: {
         type: Sequelize.STRING,
-        unique: true
+        allowNull: false
       },
       password: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false,
       },
       firstName: {
         type: Sequelize.STRING
@@ -27,14 +29,14 @@ module.exports = {
       },
       phone: {
         type: Sequelize.STRING,
-        unique: true
+        
       },
       address: {
         type: Sequelize.STRING
       },
       dni: {
         type: Sequelize.STRING,
-        unique: true
+        
       },
       description: {
         type: Sequelize.STRING
@@ -48,6 +50,7 @@ module.exports = {
         type: Sequelize.DATE
       }
     });
+    
   },
   down: async (queryInterface, Sequelize) => {
     await queryInterface.dropTable('Users');
