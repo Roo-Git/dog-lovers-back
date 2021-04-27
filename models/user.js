@@ -30,7 +30,7 @@ module.exports = (sequelize, DataTypes) => {
 
       // Comentario de Robert de la Fuente 26/04/2021
 
-      // No he conseguido poner la contraseña nula.
+      // No he conseguido poner la contraseña que no sea nula.
       
       // Anteriormente Lo he intentado de las siguientes formas:
       // con allowNull: false.
@@ -46,7 +46,7 @@ module.exports = (sequelize, DataTypes) => {
       password: {       
         type: DataTypes.STRING,
         validate: {
-          len: [7, 1000000],
+          len: [5, 1000000],
         },
       },
 

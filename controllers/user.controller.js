@@ -9,6 +9,7 @@ class UserController {
 
   // Register
   async signUp(user) {
+      if(user.password != '')
       user.password = await bcrypt.hash(user.password, 5)
       return User.create(user)
   };
