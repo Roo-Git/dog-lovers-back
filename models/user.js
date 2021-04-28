@@ -14,28 +14,18 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   User.init({
-      username: {
-      type: DataTypes.STRING,
-        validate: {
-          len: [5, 10],
-        },
-      },
-
-      email: {
-      type: DataTypes.STRING,
-        validate: {
-          len: [10, 20],
-        },
-      },   
-      password: {       
-        type: DataTypes.STRING,
-      },
-
+    username: DataTypes.STRING,
+    email: DataTypes.STRING,
+    password: DataTypes.STRING,
+    token: DataTypes.STRING,
     firstName: DataTypes.STRING,
     lastName: DataTypes.STRING,
     phone: DataTypes.STRING,
+    country: DataTypes.STRING,
+    city: DataTypes.STRING,
     address: DataTypes.STRING,
-    dni: DataTypes.STRING,
+    nif: DataTypes.STRING,
+    sitter: DataTypes.BOOLEAN,
     description: DataTypes.STRING
   }, {
     sequelize,
