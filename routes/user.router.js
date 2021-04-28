@@ -77,10 +77,14 @@ router.get ('/:id', async (req, res) => {
       const firstName = user.firstName;
       const lastName = user.lastName;
       const phone = user.phone;
+      const country = user.country;
+      const city = user.city;
       const address = user.address;
+      const nif = user.nif;
+      const sitter = user.sitter;
       const description = user.description;
     
-      res.json({username, email, firstName, lastName, phone, address, description})
+      res.json({username, email, firstName, lastName, phone, country, city, address, nif, sitter, description})
 
     }catch (err) {
       return res.status(500).json({
