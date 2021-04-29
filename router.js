@@ -1,9 +1,11 @@
 const router = require('express').Router();
 
 const userRouter = require('./routes/user.router');
+const dogRouter = require('./routes/dog.router');
 
 // REST RESOURCES
 
 router.use('/users', userRouter);
+router.use('/dogs', dogRouter);
 
 module.exports = router;
