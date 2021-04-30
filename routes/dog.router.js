@@ -56,7 +56,7 @@ router.get ('/', async (req,res) => {
   };
 });
 
-// Update Dog Profile 
+// Update Dog Profile by ID (No auth)
 
 router.put('/:id', async (req, res) => {
   try{
@@ -64,6 +64,18 @@ router.put('/:id', async (req, res) => {
     res.json(await dogController.updateDogProfile(body, req.params.id));
   }catch(err){
     return res.status(500).json({
+      message: err.message
+    });
+  };
+});
+
+// Delete Dog by ID
+
+router.delete('/:id', async (req, res) => {
+  try{
+    res.json(await dogController.deleteDog(req.params.id));
+  }catch(err){
+    res.status(500).json({
       message: err.message
     });
   };
