@@ -20,7 +20,14 @@ class DogController {
   async indexAll(){
     return Dog.findAll()
   }
-  
+
+  // Update Dog Profile by Id 
+
+  async updateDogProfile(update, id) {
+    const dog = await Dog.findOne({where: {id}})
+    return await dog.update(update);
+}  
+
 }
 
 

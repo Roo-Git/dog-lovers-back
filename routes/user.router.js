@@ -96,7 +96,7 @@ router.get ('/:id', async (req, res) => {
 
 
 // Update User Profile (No password)
-router.put('/:id', auth, async (req, res) => {
+router.put('/:id', async (req, res) => {
     try{
       const body = req.body;
       res.json(await userController.updateUserProfile(body, req.params.id));
