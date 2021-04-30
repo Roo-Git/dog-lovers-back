@@ -1,6 +1,6 @@
 const router = require('express').Router({mergeParams:true});
 const dogController = require("../controllers/dog.controller");
-const auth = require('../middlewares/auth');
+
 
 
 // Create Dog by User ID
@@ -81,16 +81,4 @@ router.delete('/:id', async (req, res) => {
   };
 });
 
-// Create dog (Trabajando)
-/*
-router.post('/',async (req,res) => {
-  try{
-      const uid = req.params.id;
-      req.body.user_Id = uid;
-      res.json(await dogController.create(req.body));
-  } catch(error) {
-      res.status(500).json({message:error.message});
-  }
-});
-*/
 module.exports = router;
