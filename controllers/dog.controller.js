@@ -2,12 +2,12 @@ const {Dog} = require ('../models');
 
 class DogController {
 
-  // Create Dog by User ID with auth
-/*
+  // Create Dog by User ID 
+
   async createDog(user_Id, id) {
     return Dog.create(user_Id,{where:{id}});  
   };
-*/
+
   // Get Dog by ID
 
   async findDog(id){
@@ -32,11 +32,6 @@ class DogController {
   async deleteDog(id) {
     return Dog.destroy({where:{id}})
   };
-
-  // Create a dog (Trabajando)
-  async create(data){
-    return Dog.create(data);
-  }
 
 }
 
