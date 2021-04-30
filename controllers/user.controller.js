@@ -47,11 +47,7 @@ class UserController {
   }
   
   
-  // Update User Profile by Id (No password)
-  //async updateUserProfile(user, id){
-    //return User.update(user,{where:{id}})
-  
-  //}
+  // Update User Profile by Id with auth (No password)
 
   async updateUserProfile(update, id) {
     const user = await User.findOne({where: {id}})

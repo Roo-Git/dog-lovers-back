@@ -2,7 +2,7 @@ const {Dog} = require ('../models');
 
 class DogController {
 
-  // Create Dog by User Id
+  // Create Dog by User Id with auth
 
   async createDog(user_Id, id) {
     return Dog.create(user_Id,{where:{id}});  
@@ -15,8 +15,12 @@ class DogController {
   };
 
 
+  // Index all Dogs
 
-
+  async indexAll(){
+    return Dog.findAll()
+  }
+  
 }
 
 

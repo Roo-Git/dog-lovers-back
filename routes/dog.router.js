@@ -3,7 +3,7 @@ const dogController = require("../controllers/dog.controller");
 const auth = require('../middlewares/auth');
 
 
-// Create Dog by User ID
+// Create Dog by User ID with auth
 
 router.post ('/:id' , auth, async (req,res) => {
   try{
@@ -38,6 +38,20 @@ router.get ('/:id', async (req, res) => {
   }catch (err) {
     return res.status(500).json({
       message: err.message
+    });
+  };
+});
+
+
+// Index All Dogs
+
+router.get ('/', async (req,res) => {
+  try{
+    res.json(await dogController.indexAll());
+  }catch(error){
+    res.status(500).json({
+      error: 'error',
+      message: 'error'
     });
   };
 });

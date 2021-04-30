@@ -54,6 +54,7 @@ router.get('/logout/:id', async (req, res) => {
 
 
 // Index All Users
+
 router.get ('/', async (req,res) => {
     try{
       res.json(await userController.indexAll());
