@@ -6,8 +6,20 @@ class DogController {
 
   async createDog(user_Id, id) {
     return Dog.create(user_Id,{where:{id}});  
-  }
+  };
+
+  // Get Dog by Id
+
+  async findDog(id){
+    return Dog.findOne({where:{id}})
+  };
+
+
+
+
 }
+
+
 
 
 
