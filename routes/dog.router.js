@@ -4,7 +4,7 @@ const auth = require('../middlewares/auth');
 
 
 // Create Dog by User ID with auth
-
+/*
 router.post ('/:id' , auth, async (req,res) => {
   try{
     const user = req.params.user_Id
@@ -17,7 +17,7 @@ router.post ('/:id' , auth, async (req,res) => {
     });
   };
 });
-
+*/
 // Get Dog by ID
 
 router.get ('/:id', async (req, res) => {
@@ -79,6 +79,17 @@ router.delete('/:id', async (req, res) => {
       message: err.message
     });
   };
+});
+
+// Create dog (Trabajando)
+router.post('/',async (req,res) => {
+  try{
+      const uid = req.params.id;
+      req.body.user_Id = uid;
+      res.json(await dogController.create(req.body));
+  } catch(error) {
+      res.status(500).json({message:error.message});
+  }
 });
 
 module.exports = router;
