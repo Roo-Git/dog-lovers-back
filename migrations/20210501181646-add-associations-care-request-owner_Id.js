@@ -3,8 +3,8 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     return [queryInterface.addColumn(
-      'Dogs', // Nombre del modelo al que apuntamos.
-      'user_Id', // Nombre del ID que añadiremos en la columna.
+      'CareRequests', // Nombre de la tabla que apuntamos.
+      'owner_Id', // Nombre del ID que añadiremos en la columna.
       {
         type: Sequelize.INTEGER,
         require: true,
@@ -14,7 +14,7 @@ module.exports = {
           },
           onUpdate: 'CASCADE',
           onDelete: 'SET NULL'
-      }
+      },
     )];
   },
 

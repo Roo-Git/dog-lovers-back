@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       // Asociación con el usuario
       Dog.belongsTo(models.User, {
         foreignKey: "user_Id",
-        as: "owners"
+        as: "users"
       });
     }
   };
