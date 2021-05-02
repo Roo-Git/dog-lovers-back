@@ -68,5 +68,17 @@ router.put('/:id', async (req, res) => {
   };
 });
 
+// Delete Request by ID
+
+router.delete('/:id', async (req, res) => {
+  try{
+    res.json(await careRequestController.deleteRequest(req.params.id));
+  }catch(err){
+    res.status(500).json({
+      message: err.message
+    });
+  };
+});
+
 
 module.exports = router;
