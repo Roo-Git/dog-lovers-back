@@ -6,11 +6,9 @@ const careRequestController = require('../controllers/careRequest.controller');
 
 // Create Request
 
-router.post('/:id', async (req,res) => {
+router.post('/', async (req,res) => {
   try {
-    const owner = req.params.owner_Id 
-    const dog = req.params.dog_Id
-    res.json (await careRequestController.createRequest(req.body, owner, dog));
+    res.json (await careRequestController.createRequest(req.body));
 
   } catch (error) {
     res.status(500).json({

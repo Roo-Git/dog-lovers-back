@@ -5,10 +5,9 @@ const dogController = require("../controllers/dog.controller");
 
 // Create Dog by User ID
 
-router.post ('/:id' , async (req,res) => {
+router.post ('/' , async (req,res) => {
   try{
-    const user = req.params.user_Id
-    res.json(await dogController.createDog(req.body, user,));
+    res.json(await dogController.createDog(req.body));
   }catch(error){
     console.log(error);
     res.status(500).json({

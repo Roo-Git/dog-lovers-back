@@ -2,7 +2,7 @@ const {Dog} = require ('../models');
 
 class DogController {
 
-  // Create Dog by User ID 
+  // Create Dog 
 
   async createDog(user_Id, id) {
     return Dog.create(user_Id,{where:{id}});  
