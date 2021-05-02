@@ -20,6 +20,14 @@ class CareRequestController {
     return CareRequest.findAll()
   };
 
+  // Update Dog Profile by ID 
+
+  async updateRequest(update, id) {
+    const request = await CareRequest.findOne({where: {id}})
+    return await request.update(update);
+  }; 
+  
+
 }
 
 let careRequestController = new CareRequestController();

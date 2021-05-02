@@ -55,5 +55,18 @@ router.get ('/', async (req,res) => {
   };
 });
 
+// Update Request by ID 
+
+router.put('/:id', async (req, res) => {
+  try{
+    const body = req.body;
+    res.json(await careRequestController.updateRequest(body, req.params.id));
+  }catch(err){
+    return res.status(500).json({
+      message: err.message
+    });
+  };
+});
+
 
 module.exports = router;
