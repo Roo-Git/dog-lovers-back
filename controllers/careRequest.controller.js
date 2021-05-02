@@ -8,7 +8,11 @@ class CareRequestController {
     return CareRequest.create(owner_Id, dog_Id, {where:{id}});
   };
 
+  // Get Request by ID
 
+  async findRequest(id){
+    return CareRequest.findOne({where:{id}})
+  };
 
 
 }

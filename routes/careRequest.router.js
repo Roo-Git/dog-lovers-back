@@ -3,8 +3,8 @@ const careRequestController = require('../controllers/careRequest.controller');
 
 // REQUEST ENDOPOINTS
 
-// Create Request
 
+// Create Request
 
 router.post('/:id', async (req,res) => {
   try {
@@ -18,6 +18,29 @@ router.post('/:id', async (req,res) => {
       message: 'error'
     });
   };
-})
+});
+
+// Get Request by ID
+
+router.get ('/:id', async (req, res) => {
+  try {
+
+    const id = req.params.id;
+    const request = await careRequestController.findRequest(id);
+    const owner_Id = request.owner_Id;
+    const dog_Id = request.dog_Id;
+    const startDate = request.startDate;
+    const finishDate = request.finishDate;
+    const post = request.post;
+
+    res.json({owner_Id, dog_Id, startDate, finishDate, post})
+
+  }catch (err) {
+    return res.status(500).json({
+      message: err.message
+    });
+  };
+});
+
 
 module.exports = router;
