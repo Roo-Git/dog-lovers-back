@@ -42,5 +42,18 @@ router.get ('/:id', async (req, res) => {
   };
 });
 
+// Index All Dogs
+
+router.get ('/', async (req,res) => {
+  try{
+    res.json(await careRequestController.indexAll());
+  }catch(error){
+    res.status(500).json({
+      error: 'error',
+      message: 'error'
+    });
+  };
+});
+
 
 module.exports = router;

@@ -14,6 +14,11 @@ class CareRequestController {
     return CareRequest.findOne({where:{id}})
   };
 
+  // Index all Request
+
+  async indexAll(){
+    return CareRequest.findAll()
+  };
 
 }
 
