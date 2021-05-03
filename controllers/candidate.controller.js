@@ -28,15 +28,17 @@ class CandidateController {
     return Candidate.findOne({where:{id}})
   }
 
-  // Get Candidate STATUS By ID 
+  // Get Owner Status By ID 
 
-  async getStatusConfirmed(id){
-    let deal = await Candidate.findOne({where:{id}})
-    if(deal.acceptedByOwner == true)
-      return await Candidate.findByPk(id)
-    else(deal.acceptedByOwner == false)
-      return await Candidate.findByPk(id)
- }
+  async getOwnerStatus(id){
+    return Candidate.findByPk(id)
+  };
+
+  // Get Sitter Status by ID
+
+  async getSitterStatus(id){
+    return Candidate.findByPk(id)
+  };
 
   // Index all Candidates
 

@@ -36,14 +36,32 @@ router.get ('/:id', async (req, res) => {
   };
 });
 
-// TRYING
-router.get ('/:id/confirmed', async (req, res) => {
+
+// GET OWNER STATUS
+router.get ('/owner/accepted/:id', async (req, res) => {
   try {
 
     const id = req.params.id;
-    const candidate = await candidateController.getStatusConfirmed(id);
+    const candidate = await candidateController.getOwnerStatus(id);
     const acceptedByOwner = candidate.acceptedByOwner
     res.json({acceptedByOwner})
+
+  }catch (err) {
+    return res.status(500).json({
+      message: err.message
+    });
+  };
+});
+
+// GET SITTER STATUS
+
+router.get ('/sitter/confirmed/:id', async (req, res) => {
+  try {
+
+    const id = req.params.id;
+    const candidate = await candidateController.getSitterStatus(id);
+    const confirmedBySitter = candidate.confirmedBySitter
+    res.json({confirmedBySitter})
 
   }catch (err) {
     return res.status(500).json({
