@@ -34,7 +34,7 @@ module.exports = {
           city: 'Valencia',
           address: 'C/ new Street 2',
           nif: '52388361-V',
-          sitter: false,
+          sitter: true,
           description: "My name is Alex and I'm a seeder.",  
           createdAt: new Date(),
           updatedAt: new Date()

@@ -3,7 +3,7 @@ const dogController = require("../controllers/dog.controller");
 
 
 
-// Create Dog by User ID
+// Create Dog 
 
 router.post ('/' , async (req,res) => {
   try{

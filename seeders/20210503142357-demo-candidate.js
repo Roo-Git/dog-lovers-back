@@ -2,32 +2,29 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    return queryInterface.bulkInsert('Dogs',
+    return queryInterface.bulkInsert('Candidates',
       [
         {
-          name: 'Rex',
-          gender: 'male',
-          breed: 'bulldog',
-          size: 'big',
-          age: '2',
-          description: 'A beautiful bulldog called Rex.',
-          user_Id: 1,
+          post: "Nos vemos en 20 minutos",
+          confirmedBySitter: true,
+          acceptedByOwner: false,
+          careRequest_Id: 1,
+          sitter_Id: 2,
           createdAt: new Date(),
           updatedAt: new Date()
         },
 
         {
-          name: 'Queen',
-          gender: 'female',
-          breed: 'Golden Retriever',
-          size: 'big',
-          age: '7',
-          description: 'A beautiful golden retriever called Queen.',
-          user_Id: 4,
+          
+          post: "Llegaré un poco tarde",
+          confirmedBySitter: true,
+          acceptedByOwner: false,
+          careRequest_Id: 2,
+          sitter_Id: 3,
           createdAt: new Date(),
           updatedAt: new Date()
         },
-      
+
       ],
     );
   },
