@@ -4,8 +4,8 @@ class DogController {
 
   // Create Dog 
 
-  async createDog(user_Id, id) {
-    return Dog.create(user_Id,{where:{id}});  
+  async createDog(owner) {
+    return Dog.create(owner);  
   };
 
   // Get Dog by ID
