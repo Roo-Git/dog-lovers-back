@@ -1,7 +1,8 @@
-const {User} = require ('../models');
+const {User, Dog, CareRequest, Candidate} = require ('../models');
 const bcrypt = require ('bcryptjs');
 const jwt = require('jsonwebtoken');
 const secret = process.env.JWT_SECRET || 'secretword';
+
 
 
 
@@ -17,7 +18,7 @@ class UserController {
 
   // Login
   async login(email, password) {
-      const user = await User.findOne({where:{email}})
+      const user = await User.findOne({where:{email}, include:[Dog, CareRequest, Candidate]})
       if (!user) {
         throw new Error('Email does not exit, please try again.')
       }

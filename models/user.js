@@ -10,6 +10,14 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'user_Id',
         
       });
+
+      User.hasMany(models.CareRequest, {
+        foreignKey: 'owner_Id', 
+      });
+
+      User.hasMany(models.Candidate, {
+        foreignKey: 'sitter_Id',
+      }) 
     }
   };
   User.init({
