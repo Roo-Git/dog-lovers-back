@@ -15,6 +15,15 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: "user_Id",
         as: "parent"
       });
+      Dog.hasMany(models.CareRequest, {
+        foreignKey: 'dog_Id',
+      }); 
+      Dog.hasMany(models.Confirmation, {
+        foreignKey: 'dog_Id'
+      });
+          //user_Id.hasMany(models.Confirmation, {                          **** user_Id is not defined
+            //foreignKey: 'user_Id'
+          //})
     }
   };
   Dog.init({

@@ -1,4 +1,4 @@
-const {Dog} = require ('../models');
+const {Dog, CareRequest} = require ('../models');
 
 class DogController {
 
@@ -11,7 +11,7 @@ class DogController {
   // Get Dog by ID
 
   async findDog(id){
-    return Dog.findOne({where:{id}})
+    return Dog.findOne({where:{id}, include:[CareRequest]})   // This include is not working.
   };
 
   // Index all Dogs

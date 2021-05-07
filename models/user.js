@@ -18,6 +18,8 @@ module.exports = (sequelize, DataTypes) => {
       User.hasMany(models.Candidate, {
         foreignKey: 'sitter_Id',
       }) 
+
+      // User.hasMany - > Confirmations?
     }
   };
   User.init({
