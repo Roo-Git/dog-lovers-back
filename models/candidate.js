@@ -19,6 +19,11 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: "sitter_Id",
         as: "baby sitter candidates "
       });
+
+      Candidate.hasMany(models.Confirmation, {
+        foreignKey: "candidate_Id",
+        as: "candidacy"
+      });
     }
   };
   Candidate.init({
