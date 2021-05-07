@@ -5,7 +5,17 @@ const confirmationController = require('../controllers/confirmation.controller')
 
 
 // Create Confirmation
+router.post('/', async (req,res) => {
+  try {
+    res.json (await confirmationController.createConfirmation(req.body));
 
+  } catch (error) {
+    res.status(500).json({
+      error: 'error',
+      message: 'error'
+    });
+  };
+});
 
 // Get Confirmation by ID
 
