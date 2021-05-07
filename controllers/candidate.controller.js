@@ -5,20 +5,12 @@ class CandidateController {
 
   // Create Candidate
 
-  // Quiero crear una candidato si se cumplen las siguiente condiciones:
-
-  // Si el campo sitter, que proviene de la tabla Users es TRUE.
-
-  // Si el campo sitter, es FALSE, tiene que dar error.
-
-  // ({where:{email}, include:[Dog, CareRequest, Candidate]})
-
-  // ({where:{id}, include: [{model: CareRequest, as: 'requests from dog owner'}]});
-
   async createCandidate (candidacy) {
     let candidate = await User.findOne({where: {id: candidacy.sitter_Id}});
+    let request = await CareRequest.findOne({where: {id: candidacy.careRequest_Id}})
+    console.log(request)
 
-    if(candidate.sitter == true)
+    if(candidate.sitter == true && request != null)
       return await Candidate.create(candidacy);
     else
       return {
