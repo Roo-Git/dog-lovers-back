@@ -1,4 +1,4 @@
-const {Candidate, User} = require ('../models')
+const {Candidate, User, CareRequest} = require ('../models')
 
 
 class CandidateController {
@@ -10,6 +10,10 @@ class CandidateController {
   // Si el campo sitter, que proviene de la tabla Users es TRUE.
 
   // Si el campo sitter, es FALSE, tiene que dar error.
+
+  // ({where:{email}, include:[Dog, CareRequest, Candidate]})
+
+  // ({where:{id}, include: [{model: CareRequest, as: 'requests from dog owner'}]});
 
   async createCandidate (candidacy) {
     let candidate = await User.findOne({where: {id: candidacy.sitter_Id}});
@@ -25,8 +29,9 @@ class CandidateController {
   // Get Candidate by ID
 
   async findCandidate(id){
-    return Candidate.findOne({where:{id}})
+    return Candidate.findOne({where:{id}, include: [{model: CareRequest, as: 'requests from dog owner'}]});
   }
+
 
   // Get Owner Status By ID 
 

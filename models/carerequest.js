@@ -20,6 +20,10 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: "dog_Id",
         as: "pets"
       });
+
+      CareRequest.hasMany(models.Candidate, {
+        foreignKey: 'careRequest_Id',
+      });
       
     }
   };

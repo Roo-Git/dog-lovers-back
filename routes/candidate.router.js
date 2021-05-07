@@ -25,7 +25,7 @@ router.get ('/:id', async (req, res) => {
     const post = candidate.post
     const confirmedBySitter = candidate.confirmedBySitter
     const acceptedByOwner = candidate.acceptedByOwner
-    const careRequest_Id = candidatre.careRequest_Id
+    const careRequest_Id = candidate.careRequest_Id
     const sitter_Id = candidate.sitter_Id
 
   
