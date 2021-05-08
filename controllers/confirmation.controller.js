@@ -19,9 +19,10 @@ class ConfirmationController {
       }
   };
 
-  // Get Confirmation by ID
+  // Get Confirmation ID by candidate_Id
+
   async findConfirmation(id){
-    return Confirmation.findOne({where:{id}})
+    return Confirmation.findOne({where:{candidate_Id : id}})
   };
 
   // Get All Confirmations

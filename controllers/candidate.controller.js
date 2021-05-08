@@ -18,12 +18,12 @@ class CandidateController {
       };
   };
   
-  // Get Candidate by ID
+  // Get Candidate ID by careRequest_Id
 
   async findCandidate(id){
-    return Candidate.findOne({where:{id}, include: [{model: CareRequest, as: 'requests from dog owner'}]});
-  }
-
+    return Candidate.findOne({where:{careRequest_Id : id}})
+      
+  };
 
   // Get Owner Status By ID 
 
