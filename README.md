@@ -291,13 +291,6 @@ Improve the code and user flow.
 <br>
 <br>
 
-<br>
-<br>
-
-<img src="gif/five.gif" alt="Five" >
-
-<br>
-<br>
 
 <br>
 
