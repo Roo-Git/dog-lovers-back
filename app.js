@@ -23,7 +23,7 @@ app.get('/', function (req, res) {
 
 // Start server
 db.then(() => {
-  app.listen(process.env.MYSQL_DATABASE || port, () => {
+  app.listen(process.env.PORT || port, () => {
       console.log(`Server app listening at port: ${port}`);   
   });
 }).catch((err)=>console.log(err.message));
