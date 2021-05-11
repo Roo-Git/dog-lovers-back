@@ -19,7 +19,8 @@
   "scripts": {
     "docker-start": "docker-compose up",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon --exec node app.js"
+    "start-dev": "nodemon --exec node app.js",
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
