@@ -1,11 +1,13 @@
 require('dotenv').config()
+const cors = require('cors')
 const express = require ('express');
 const router = require ('./router');
 const db = require ('./db');
 const app = express();
 const port = 3000;
 
-const cors = require('cors')
+
+
 
 
 
@@ -26,6 +28,6 @@ app.use(router)
 // Start server
 db.then(() => {
   app.listen(process.env.MYSQL_DATABASE || port, () => {
-      console.log(`Server app listening at http://localhost:${port}`);   
+      console.log(`Server app listening at port: ${port}`);   
   });
 }).catch((err)=>console.log(err.message));
