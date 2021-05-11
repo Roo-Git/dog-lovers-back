@@ -252,6 +252,14 @@ Improve the code and user flow.
 
 
 
+
+
+
+
+
+
+## APP OVERVIEW
+
 <img src="gif/first.gif" alt="First" >
 
 <br>
@@ -283,11 +291,13 @@ Improve the code and user flow.
 <br>
 <br>
 
+<br>
+<br>
 
+<img src="gif/five.gif" alt="Five" >
 
-
-
-## APP OVERVIEW
+<br>
+<br>
 
 <br>
 
