@@ -4,7 +4,7 @@ const express = require ('express');
 const router = require ('./router');
 const db = require ('./db');
 const app = express();
-const port = 3000;
+const port = 3000 || process.env.PORT
 
 // Middleware
 app.use(express.json());
@@ -20,10 +20,9 @@ app.get('/', function (req, res) {
 })
 
 
-
 // Start server
 db.then(() => {
-  app.listen(process.env.PORT || port, () => {
+  app.listen(port, () => {
       console.log(`Server app listening at port: ${port}`);   
   });
 }).catch((err)=>console.log(err.message));
