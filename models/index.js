@@ -10,7 +10,7 @@ const db = {};
 
 let sequelize;
 if (config.use_env_variable) {
-  sequelize = new Sequelize(process.env["MYSQL_DATABASE"], config);
+  sequelize = new Sequelize(process.env["CLEARDB_DATABASE_URL"], config);
 } else {
   sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
