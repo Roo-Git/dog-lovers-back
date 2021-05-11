@@ -6,7 +6,10 @@ const db = require ('./db');
 const app = express();
 const port = 3000;
 
-
+// Middleware
+app.use(express.json());
+app.use(cors())
+app.use(router)
 
 
 
@@ -15,13 +18,6 @@ const port = 3000;
 app.get('/', function (req, res) {
   res.send('Hello world!')
 })
-
-
-
-// Middleware
-app.use(express.json());
-app.use(cors())
-app.use(router)
 
 
 
